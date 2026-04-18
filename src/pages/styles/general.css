@@ -12,3 +12,17 @@ body {
 img {
     width: 20%;
 }
+
+header, section {
+    padding: 2rem;
+}
+
+header {
+    background-color: white;
+    background-size: cover;
+}
+
+.grid_3_column {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+}
