@@ -22,6 +22,10 @@ header {
     background-size: cover;
 }
 
+.logo {
+    width: 20%;
+}
+
 .grid_3_column {
 display: grid;
 grid-template-columns: repeat(3, 1fr);
