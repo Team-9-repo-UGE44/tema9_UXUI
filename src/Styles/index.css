@@ -554,13 +554,41 @@ footer {
 }
 
 /* =========================
-   HERO RESPONSIVE TOM (FIXED)
+   NAV LAYOUT FIX (VIGTIG)
 ========================= */
 
+.nav {
+  grid-column: 1 / -1;
 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
+  padding: 20px 40px;
+  background: #f3f3f3;
+}
 
+/* venstre side (logo + tekst) */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
+/* logo størrelse */
+.logo {
+  width: 120px;
+}
+
+/* titel */
+.nav-title {
+  font-weight: bold;
+}
+.nav-links a,
+.mobile-nav a {
+  color: black;
+  text-decoration: none;
+}
 
 /* =========================
    HERO-banner STYLING ABOUT PAGE

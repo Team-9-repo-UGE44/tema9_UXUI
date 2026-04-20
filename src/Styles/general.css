@@ -27,3 +27,212 @@ h1, h2, h3 {
   margin: 0;
 }
 
+/* =========================
+   NAVIGATION (FIXET)
+========================= */
+
+/* Desktop menu */
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+/* Mobile menu skjult som default */
+.mobile-nav {
+  display: none;
+}
+
+/* Burger skjult på desktop */
+.burger {
+  display: none;
+  cursor: pointer;
+}
+
+/* 🔥 MOBIL */
+@media (max-width: 800px) {
+
+  /* skjul desktop menu */
+  .nav-links {
+    display: none;
+  }
+
+  /* vis burger */
+  .burger {
+    display: flex;            /* 🔥 ændret fra none */
+    flex-direction: column;   /* 🔥 gør det til 3 streger */
+    gap: 5px;
+  }
+
+  /* mobile menu */
+  .mobile-nav {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background: white;
+
+    display: none;            /* 🔥 vigtig */
+    flex-direction: column;
+    align-items: center;
+
+    transform: translateY(-100%);
+    transition: 0.3s;
+  }
+
+  .mobile-nav.open {
+  display: flex !important; /* 🔥 sikrer den altid vises */
+  transform: translateY(0);
+}
+}
+.burger span {
+  width: 25px;
+  height: 3px;
+  background: black;
+  display: block;
+}
+
+.nav {
+  position: relative;
+  z-index: 1000;
+}
+
+.mobile-nav {
+  z-index: 1001; /* 🔥 højere end hero */
+}
+/* =========================
+   NAV LAYOUT FIX (VIGTIG)
+========================= */
+
+.nav {
+  grid-column: 1 / -1;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 20px 40px;
+  background: #f3f3f3;
+}
+
+/* venstre side (logo + tekst) */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+  background-color: #c07a6b;
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.footer-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+
+.footer-logo {
+  width: 70px;   /* 🔥 gør den mindre */
+  height: auto;  /* bevarer proportioner */
+}
+
+.footer h2 {
+  font-size: 28px;
+  letter-spacing: 2px;
+}
+
+.tagline {
+  margin: 20px 0 40px;
+  font-style: italic;
+  font-size: 18px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: space-between;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.footer-links div {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+.footer-links a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+/* Full width footer */
+footer {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 600px) {
+  .footer-links {
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+  }
+}
+
+
+/* =========================
+   NAV LAYOUT FIX (VIGTIG)
+========================= */
+
+.nav {
+  grid-column: 1 / -1;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 20px 40px;
+  background: #f3f3f3;
+}
+
+/* venstre side (logo + tekst) */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* logo størrelse */
+.logo {
+  width: 120px;
+}
+
+/* titel */
+.nav-title {
+  font-weight: bold;
+}
+.nav-links a,
+.mobile-nav a {
+  color: black;
+  text-decoration: none;
+}
