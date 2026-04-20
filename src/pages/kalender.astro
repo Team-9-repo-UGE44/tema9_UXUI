@@ -1,0 +1,145 @@
+---
+import "../Styles/kalender.css";
+import Layout from "../layouts/Layout.astro";
+import KommendeBegivenheder from "../components/KommendeBegivenheder.astro";
+
+/*<Layout>
+
+<KommendeBegivenheder/>
+
+</Layout> */
+
+const today = new Date();
+
+const initialYear = today.getFullYear();
+const initialMonth = today.getMonth();
+
+const monthNames = [
+  "Jan", "Feb", "Mar", "Apr", "Maj", "Jun",
+  "Jul", "Aug", "Sep", "Okt", "Nov", "Dec"
+];
+
+function getDays(year: number, month: number) {
+  const firstDay = new Date(year, month, 1).getDay();
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+  const days = [];
+
+  for (let i = 0; i < firstDay; i++) {
+    days.push(null);
+  }
+
+  for (let i = 1; i <= daysInMonth; i++) {
+    days.push(i);
+  }
+
+  return days;
+}
+
+const days = getDays(initialYear, initialMonth);
+---
+
+<section class="calendar">
+
+  <!-- HEADER -->
+  <div class="calendar-header">
+    <button id="prev" aria-label="Forrige måned">&lt;</button>
+
+    <div class="selectors">
+      <span id="month">{monthNames[initialMonth]}</span>
+      <span id="year">{initialYear}</span>
+    </div>
+
+    <button id="next" aria-label="Næste måned">&gt;</button>
+  </div>
+
+  <!-- WEEKDAYS -->
+  <div class="weekdays">
+    <span>Su</span><span>Mo</span><span>Tu</span>
+    <span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
+  </div>
+
+  <!-- GRID -->
+  <div class="calendar-grid" id="grid">
+    {days.map((day) => (
+      <div class={`day ${day === today.getDate() ? "active" : ""}`}>
+        {day ?? ""}
+      </div>
+    ))}
+  </div>
+
+</section>
+
+<!-- CLIENT SCRIPT -->
+<script is:inline>
+  (() => {
+    let month = new Date().getMonth();
+    let year = new Date().getFullYear();
+
+    const monthNames = [
+      "Jan","Feb","Mar","Apr","Maj","Jun",
+      "Jul","Aug","Sep","Okt","Nov","Dec"
+    ];
+
+    const grid = document.getElementById("grid");
+    const monthEl = document.getElementById("month");
+    const yearEl = document.getElementById("year");
+    const prevBtn = document.getElementById("prev");
+    const nextBtn = document.getElementById("next");
+
+    if (!grid || !monthEl || !yearEl || !prevBtn || !nextBtn) return;
+
+    function renderCalendar() {
+      const firstDay = new Date(year, month, 1).getDay();
+      const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+      grid.innerHTML = "";
+
+      for (let i = 0; i < firstDay; i++) {
+        const empty = document.createElement("div");
+        empty.className = "day";
+        grid.appendChild(empty);
+      }
+
+      for (let i = 1; i <= daysInMonth; i++) {
+        const dayEl = document.createElement("div");
+        dayEl.className = "day";
+
+        const today = new Date();
+        if (
+          i === today.getDate() &&
+          month === today.getMonth() &&
+          year === today.getFullYear()
+        ) {
+          dayEl.classList.add("active");
+        }
+
+        dayEl.textContent = i;
+        grid.appendChild(dayEl);
+      }
+
+      monthEl.textContent = monthNames[month];
+      yearEl.textContent = year;
+    }
+
+    prevBtn.addEventListener("click", () => {
+      month--;
+      if (month < 0) {
+        month = 11;
+        year--;
+      }
+      renderCalendar();
+    });
+
+    nextBtn.addEventListener("click", () => {
+      month++;
+      if (month > 11) {
+        month = 0;
+        year++;
+      }
+      renderCalendar();
+    });
+
+    renderCalendar();
+  })();
+</script>
