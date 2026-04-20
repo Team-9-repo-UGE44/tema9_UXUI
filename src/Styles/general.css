@@ -1,0 +1,457 @@
+
+/* =========================
+   FONTS
+========================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Raleway:wght@600;700&display=swap');
+
+/* =========================
+   GLOBAL
+========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  font-family: 'Montserrat', sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: 'Raleway', sans-serif;
+  margin: 0;
+}
+
+/* =========================
+   HERO
+========================= */
+.hero-tagline {
+  position: absolute;
+
+  bottom: 120px;  /* 🔥 justér placering */
+  left: 50%;
+  transform: translateX(-50%) rotate(-8deg); /* 🔥 rotation */
+
+  background: rgba(180, 170, 150, 0.85); /* lidt transparent */
+  padding: 12px 30px;
+
+  font-family: 'Raleway', sans-serif;
+  font-size: 28px;
+  color: white;
+
+  border-radius: 4px;
+}
+
+
+.hero {
+  position: relative;
+  height: 700px;
+  grid-column: 1 / -1;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Overlay */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #caa08f;
+  padding: 40px;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-overlay h1 {
+  font-size: 80px;
+  line-height: 0.9;
+  font-weight: 800;
+}
+
+/* Hero buttons */
+.hero-buttons {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px;
+}
+
+/* =========================
+   BUTTON SYSTEM (REN)
+========================= */
+
+/* Base */
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+/* HERO buttons */
+.hero .btn {
+  padding: 14px 28px;
+  border-radius: 30px;
+}
+
+.hero .btn.primary {
+  background: #f07f5a;
+  color: white;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.hero .btn.secondary {
+  background: white;
+  color: black;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.hero .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.2);
+}
+
+.hero .btn:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* FEATURE "Læs mere" = link style */
+.info-card .btn {
+  padding: 10px 18px;
+  background: #c07a6b; /* 🔥 din farve */
+  color: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.info-card .btn:hover {
+  text-decoration: underline;
+}
+
+
+/* PODCAST BUTTONS */
+.podcast-buttons .btn {
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+}
+
+/* 🔥 Tilmeld */
+.podcast-buttons .primary {
+  background: #c07a6b;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* 🔥 Del event */
+.podcast-buttons .outline {
+  background: transparent;
+  border: 2px solid #c07a6b;
+  color: #c07a6b;
+}
+
+/* Hover */
+.podcast-buttons .btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Hover specifik */
+.podcast-buttons .primary:hover {
+  background: #a96557;
+}
+
+.podcast-buttons .outline:hover {
+  background: #c07a6b;
+  color: white;
+}
+
+/* =========================
+   HEADING
+========================= */
+
+.heading {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.heading h2 {
+  font-size: 42px;
+}
+
+/* =========================
+   FEATURE SECTION
+========================= */
+
+.info-section {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 80px 20px;
+}
+
+.info-card img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #7a4a44;
+}
+
+.info-card h3 {
+  font-size: 22px;
+  margin: 5px 0 10px;
+}
+
+.text {
+  font-size: 16px;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .info-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+/*Carousel i BigCard*/
+
+.carousel {
+  display: flex;
+  gap: 16px;
+
+  overflow-x: auto; /* 🔥 gør den scrollable */
+  scroll-snap-type: x mandatory;
+
+  padding: 20px;
+}
+
+/* skjul scrollbar (nice UX) */
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.card {
+  flex: 0 0 auto; /* 🔥 vigtigt */
+  width: 90px;
+  height: 110px;
+
+  background: #d9cec8;
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+  color: #4a2c2a;
+
+  scroll-snap-align: start;
+  transition: 0.2s ease;
+}
+
+/* aktiv kort */
+.card.active {
+  background: #e97c59;
+  color: white;
+}
+
+/* hover */
+.card:hover {
+  transform: translateY(-3px);
+}
+
+/* tekst */
+.day {
+  font-size: 12px;
+}
+
+.date {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.month {
+  font-size: 12px;
+}
+
+.carousel {
+  scroll-padding-left: 20px;
+}
+.carousel {
+  grid-column: 1 / -1; /* 🔥 vigtigt hvis du bruger grid */
+
+  display: flex;
+  gap: 16px;
+
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+
+  max-width: 800px;   /* 🔥 styrer bredden */
+  margin: 0 auto;     /* 🔥 centrerer */
+
+  padding: 20px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+  background-color: #c07a6b;
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.footer-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+
+.footer-logo {
+  width: 70px;   /* 🔥 gør den mindre */
+  height: auto;  /* bevarer proportioner */
+}
+
+.footer h2 {
+  font-size: 28px;
+  letter-spacing: 2px;
+}
+
+.tagline {
+  margin: 20px 0 40px;
+  font-style: italic;
+  font-size: 18px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: space-between;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.footer-links div {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+.footer-links a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+/* Full width footer */
+footer {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 600px) {
+  .footer-links {
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+  }
+}
+
+/*Mere om uge 44*/
+
+
+.more {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.more h2 {
+  font-size: 32px;
+  margin-bottom: 50px;
+}
+
+/* grid */
+.more-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* card */
+.more-card img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.more-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.more-card p {
+  font-size: 15px;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+/* button */
+.more-card .btn {
+  padding: 10px 20px;
+  border-radius: 25px;
+  background: #c07a6b;
+  color: white;
+  text-decoration: none;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+  .more-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.more-card img {
+  aspect-ratio: 4 / 5;
+  width: 100%;
+  object-fit: cover;
+}
