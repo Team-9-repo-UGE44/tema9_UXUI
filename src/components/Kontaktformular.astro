@@ -1,16 +1,140 @@
-<section class="kontaktformular">
-    <div class="kontaktinfo">
-  <p>Du er altid velkommen til at kontakte os for yderligere information, spørgsmål eller andet, vi kan hjælpe med.
-<br><br>
-Landsforeningen Liv&Død kan kontaktes via e-mail på info@livogdoed.dk eller telefonisk på  33 36 49 70. Vi bestræber os på at besvare alle henvendelser hurtigst muligt, typisk inden for 1-2 hverdage.
-<br><br>
-Telefonen er åben alle hverdage fra kl. 10.00 til 15.00, hvor du kan få direkte kontakt med os. Uden for dette tidsrum er du altid velkommen til at sende en e-mail, som vi vil vende tilbage på snarest muligt.</p>
-  </div>
-  <div class="kontakt_grid_1_1">
-<p>Kontakt os
-Landsforeningen Liv&DødBispebjerg Torv 16 St. TV2400 København NVTlf. 33 36 49 70E-mail: info@livogdoed.dk</p>
-<p>Pressehenvendelser
-Ved pressehenvendelser, skriv til sekretariatschef Vibeke Sonntag Larsen på vsl@livogdoed.dk eller info@livogdoed.dk.</p>
-<img src="" alt="">
+---
+---
+
+<section class="kontakt-formular">
+  <div class="kontakt-kort">
+    <div class="info">
+      <p>
+        Er du arrangør og interesseret i at samarbejde med os, er du meget
+        velkommen til at kontakte os via formularen nedenfor.
+      </p>
+
+      <p>
+        Vi hører gerne fra dig, hvis du har et arrangement, hvor vores forening
+        kan bidrage eller deltage.
+      </p>
+
+      <p>
+        For at kunne give dig et hurtigt og relevant svar, beder vi dig kort
+        beskrive dit arrangement – herunder formål, dato, sted og hvad du ønsker
+        vores medvirken til. Jo mere præcis din henvendelse er, desto nemmere er
+        det for os at vurdere mulighederne for samarbejde.
+      </p>
+
+      <p>
+        Vi bestræber os på at besvare alle henvendelser hurtigst muligt og typisk
+        inden for få hverdage. Henvendelser behandles primært i dagtimerne, og vi
+        anbefaler derfor, at du kontakter os i god tid.
+      </p>
+
+      <p>
+        Udfyld venligst dine oplysninger i formularen nedenfor, så vender vi
+        tilbage til dig.
+      </p>
+    </div>
+
+    <form class="form">
+      <label>
+        Fulde navn:
+        <input type="text" placeholder="Navn Navnesen" required />
+      </label>
+
+      <label>
+        Telefon:
+        <input type="tel" placeholder="+45 12 34 56 78" />
+      </label>
+
+      <label>
+        Email:
+        <input type="email" placeholder="navn@email.dk" required />
+      </label>
+
+      <label>
+        Besked:
+        <textarea
+          rows="4"
+          placeholder="Vi beder dig kort beskrive dit arrangement – herunder formål, dato, sted og hvad du ønsker vores medvirken til."
+        ></textarea>
+      </label>
+
+      <button type="submit">Send</button>
+    </form>
   </div>
 </section>
+
+<style>
+  .kontakt-formular {
+    display: flex;
+    justify-content: center;
+    padding: 4rem 1rem;
+    background: #f4f4f4;
+  }
+
+  .kontakt-kort {
+    max-width: 600px;
+    width: 100%;
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  }
+
+  .text p {
+    margin-bottom: 1rem;
+    color: #444;
+    line-height: 1.6;
+    margin: 0 auto;
+  padding: 0px 20px;
+  }
+
+  .form {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  label {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.9rem;
+    color: #333;
+    gap: 0.3rem;
+  }
+
+  input,
+  textarea {
+    padding: 0.8rem 1rem;
+    border-radius: 999px;
+    border: 1px solid #ddd;
+    outline: none;
+    font-size: 0.95rem;
+    transition: 0.2s ease;
+  }
+
+  textarea {
+    border-radius: 12px;
+    resize: vertical;
+  }
+
+  input:focus,
+  textarea:focus {
+    border-color: #c97d6d;
+  }
+
+  button {
+    margin-top: 1rem;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 999px;
+    background: #c97d6d;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.2s ease;
+  }
+
+  button:hover {
+    background: #b46a5a;
+  }
+</style>
