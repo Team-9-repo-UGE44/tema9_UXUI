@@ -154,20 +154,18 @@ const featuredEvent = events[0]; // Vælg det første event som det fremhævede 
           const selectedEvent = events.find((e) => e.id === eventId);
 
           if (selectedEvent) {
-            // Update featured event image
+            // Update featured event 
             const imgElement = document.querySelector(".featured-image img");
             imgElement.src = selectedEvent.image.src;
             imgElement.alt = selectedEvent.title;
 
-            // Update featured event title
             document.querySelector(".featured-content h2").textContent =
               selectedEvent.title;
 
-            // Update featured event description
             document.querySelector(".featured-content p").textContent =
               selectedEvent.extendedDescription;
 
-            // Scroll to featured event section
+            // Scroll til feat event 
             setTimeout(() => {
               document
                 .getElementById("featured-event-section")
