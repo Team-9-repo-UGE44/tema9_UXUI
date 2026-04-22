@@ -1,145 +1,209 @@
 ---
-import "../Styles/kalender.css";
 import Layout from "../layouts/Layout.astro";
-import KommendeBegivenheder from "../components/KommendeBegivenheder.astro";
+import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
+import Heading from "../components/Heading.astro";
+import "../Styles/general.css";
+import "../Styles/kalender.css";
 
-/*<Layout>
+/*------------------------------*/
+/* data til events */
+/*------------------------------*/
+import img1 from "../assets/Event-guide_2026-uge-44.webp";
+import img2 from "../assets/2.webp";
+import img3 from "../assets/de_doedes_dag.webp";
+import img4 from "../assets/4.webp";
+import img5 from "../assets/5.webp";
+import img6 from "../assets/6.webp";
 
-<KommendeBegivenheder/>
-
-</Layout> */
-
-const today = new Date();
-
-const initialYear = today.getFullYear();
-const initialMonth = today.getMonth();
-
-const monthNames = [
-  "Jan", "Feb", "Mar", "Apr", "Maj", "Jun",
-  "Jul", "Aug", "Sep", "Okt", "Nov", "Dec"
+const events = [
+  {
+    id: 1,
+    title: "Uge 44 i 2026",
+    image: img1,
+    description: "2025 sluttede endnu flere sig til vores kampagne, og vi gjorde vores følgere.",
+    extendedDescription: "Uge 44 2026 er en landsdækkende kampagne hvor hele Danmark sætter fokus på døden og sorgen. I år har endnu flere sluttede sig til initiativet, og vi ser en stor interesse fra virksomheder, organisationer og privatpersoner. Kampen handler om at bryde tabuet omkring døden og skabe mere åbenhed omkring det at sørge. Gennem forskellige arrangements, foredrag og sociale medier vil vi forsøge at gøre Danmarks befolkning opmærksomme på vigtigheden af at tale om døden.",
+  },
+  {
+    id: 2,
+    title: "Når døden os skiller",
+    image: img2,
+    description: "Her kan du lytte til vores nye podcastserie, der vil forsøge at gøre den svære samtale om døden lettere.",
+    extendedDescription: "Vores nye podcastserie 'Når døden os skiller' udforsker de vanskelige samtaler omkring døden, sorg og efterliv. Gennem interviews med eksperter, sørgende og personer med personlige historier, forsøger vi at normalisere samtalen om døden. Serien er designet til at være terapeutisk, informativ og inspirerende. Hver episode udforsker nye aspekter af døden - fra praktiske forhold til følelsesmæssige udfordringer.",
+  },
+  {
+    id: 3,
+    title: "Uge 44 i 2023: Når døden os skiller",
+    image: img3,
+    description: "2023 var første år vi lancerede vores kampagneuge, og i den forbindelse søsatte vi en plakatkonkurrence.",
+    extendedDescription: "I 2023 lancerede vi for første gang Uge 44 kampagnen med fokus på 'Når døden os skiller'. For at skabe mere opmærksomhed og engagement arrangerede vi en landsdækkende plakatkonkurrence hvor kunstnere, designere og privatpersoner kunne bidrage med deres kunstneriske tolkning af døden. De bedste plakater blev udstillet på offentlige steder rundt om i Danmark, hvilket skabte vigtig debat og opmærksomhed omkring kampagnen.",
+  },
+  {
+    id: 4,
+    title: "Sig det højt",
+    image: img4,
+    description: "Det er okay at sige det højt. Kom og vær med til en tryg og uformel samtale - du er ikke alene.",
+    extendedDescription: "'Sig det højt' er en serie af lokale samtalegrupper arrangeret i hele landet, hvor mennesker kan mødes i en tryg og ikke-dømmende miljø for at tale om deres erfaring med død, sorg og tab. Grupperne ledes af uddannede facilitatorer og psykologer, og der er fokus på at lytte uden at dømme. Her er der plads til både sorgen, glæden over minderne og det at være menneske. Du er ikke alene i dine følelser.",
+  },
+  {
+    id: 5,
+    title: "Walk & Talk",
+    image: img5,
+    description: "Gå en tur. Sig det højt. Du er ikke alene.",
+    extendedDescription: "'Walk & Talk' er inspireret af det terapeutiske koncept om at tale samtidig med at man bevæger sig. Forskning viser at det er lettere at tale om svære emner når man går side om side i stedet for ansigt til ansigt. Derfor arrangerer vi guidede gåture rundt omkring i Danmark hvor folk kan mødes og tale om deres erfaringer med død og sorg. Det er helt gratis og alle er velkomne - uanset hvor længe siden din tab er.",
+  },
+  {
+    id: 6,
+    title: "Det fik jeg aldrig sagt",
+    image: img6,
+    description: "Find alle begivenheder på ét sted i hele landet.",
+    extendedDescription: "'Det fik jeg aldrig sagt' er et projekt hvor mennesker kan dele de ord de aldrig fik mulighed til at sige til deres nærmeste. Gennem denne platform kan folk udtrykke deres følelser, ønsker og budskaber til døde mennesker eller mennesker de ikke længere har forbindelse til. Projektet handler om at give stemme til de uudsagte ord og hjælpe mennesker med at processe deres følelser. Alle historier bliver behandlet med respekt og empati.",
+  },
 ];
 
-function getDays(year: number, month: number) {
-  const firstDay = new Date(year, month, 1).getDay();
-  const daysInMonth = new Date(year, month + 1, 0).getDate();
-
-  const days = [];
-
-  for (let i = 0; i < firstDay; i++) {
-    days.push(null);
-  }
-
-  for (let i = 1; i <= daysInMonth; i++) {
-    days.push(i);
-  }
-
-  return days;
-}
-
-const days = getDays(initialYear, initialMonth);
+const featuredEvent = events[0]; // Vælg det første event som det fremhævede event ved at ændre tallet her.
 ---
 
-<section class="calendar">
+<html lang="da">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="/js/nav.js" defer></script>
+    <title>Kalender - Uge 44</title>
+  </head>
+  <body>
+    <Navigation />
 
-  <!-- HEADER -->
-  <div class="calendar-header">
-    <button id="prev" aria-label="Forrige måned">&lt;</button>
+ <Heading text="Kommende begivenheder" />
 
-    <div class="selectors">
-      <span id="month">{monthNames[initialMonth]}</span>
-      <span id="year">{initialYear}</span>
+    <!-- Kommende begivenheder section -->
+          
+    <section class="events-section">
+
+
+      <div class="events-grid">
+        {
+          events.map((event) => (
+            <article class="event-card">
+              <img
+                src={event.image.src}
+                alt={event.title}
+                class="event-image"
+              />
+              <div class="event-content">
+                <h3>{event.title}</h3>
+                <p>{event.description}</p>
+                <div class="event-buttons">
+                  <a href="#" class="btn primary details-btn" data-event-id={event.id}>
+                    Læs mere
+                  </a>
+                  <a href="#" class="btn outline">
+                    Del Event
+                  </a>
+                </div>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Featured event sektion -->
+    <section class="featured-event" id="featured-event-section">
+      <div class="featured-container">
+        <div class="featured-image">
+          <img src={featuredEvent.image.src} alt={featuredEvent.title} />
+        </div>
+        <div class="featured-content">
+          <h2>{featuredEvent.title}</h2>
+          <p>{featuredEvent.extendedDescription}</p>
+          <div class="featured-buttons">
+            <a href="#" class="btn primary">
+              Tilmeld
+            </a>
+            <a href="#" class="btn outline">
+              Del event
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <Footer />
+
+    <div id="sharePopUp" class="popUp">
+      <div class="popUp-content">
+        <button class="popUp-close">&times;</button>
+        <h2>Del event</h2>
+        <p>(Her sendes brugeren videre til en anden ekstern delingsside)</p>
+        <button class="popUp-button">Luk</button>
+      </div>
     </div>
 
-    <button id="next" aria-label="Næste måned">&gt;</button>
-  </div>
 
-  <!-- WEEKDAYS -->
-  <div class="weekdays">
-    <span>Su</span><span>Mo</span><span>Tu</span>
-    <span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
-  </div>
 
-  <!-- GRID -->
-  <div class="calendar-grid" id="grid">
-    {days.map((day) => (
-      <div class={`day ${day === today.getDate() ? "active" : ""}`}>
-        {day ?? ""}
-      </div>
-    ))}
-  </div>
 
-</section>
+     <!--------------------------------------------------------------------->
+     <!-- JavaScript til at håndtere "Læs mere" knapperne og pop-up deling -->
+     <!--------------------------------------------------------------------->
+    <script define:vars={{ events }}>
+      document.querySelectorAll(".details-btn").forEach((button) => {
+        button.addEventListener("click", (e) => {
+          e.preventDefault();
+          const eventId = parseInt(button.dataset.eventId);
+          const selectedEvent = events.find((e) => e.id === eventId);
 
-<!-- CLIENT SCRIPT -->
-<script is:inline>
-  (() => {
-    let month = new Date().getMonth();
-    let year = new Date().getFullYear();
+          if (selectedEvent) {
+            // Update featured event 
+            const imgElement = document.querySelector(".featured-image img");
+            imgElement.src = selectedEvent.image.src;
+            imgElement.alt = selectedEvent.title;
 
-    const monthNames = [
-      "Jan","Feb","Mar","Apr","Maj","Jun",
-      "Jul","Aug","Sep","Okt","Nov","Dec"
-    ];
+            document.querySelector(".featured-content h2").textContent =
+              selectedEvent.title;
 
-    const grid = document.getElementById("grid");
-    const monthEl = document.getElementById("month");
-    const yearEl = document.getElementById("year");
-    const prevBtn = document.getElementById("prev");
-    const nextBtn = document.getElementById("next");
+            document.querySelector(".featured-content p").textContent =
+              selectedEvent.extendedDescription;
 
-    if (!grid || !monthEl || !yearEl || !prevBtn || !nextBtn) return;
+            // Scroll til feat event 
+            setTimeout(() => {
+              document
+                .getElementById("featured-event-section")
+                .scrollIntoView({ behavior: "smooth" });
+            }, 100);
+          }
+        });
+      });
 
-    function renderCalendar() {
-      const firstDay = new Date(year, month, 1).getDay();
-      const daysInMonth = new Date(year, month + 1, 0).getDate();
+      
+      /*-----------*/      
+      /* del event */
+      /*-----------*/   
+      const popUp = document.getElementById("sharePopUp");
+      const closeBtn = document.querySelector(".popUp-close");
+      const popUpButton = document.querySelector(".popUp-button");
 
-      grid.innerHTML = "";
+      document.querySelectorAll(".btn.outline").forEach((button) => {
+        button.addEventListener("click", (e) => {
+          e.preventDefault();
+          popUp.classList.add("show");
+        });
+      });
 
-      for (let i = 0; i < firstDay; i++) {
-        const empty = document.createElement("div");
-        empty.className = "day";
-        grid.appendChild(empty);
-      }
+      closeBtn.addEventListener("click", () => {
+        popUp.classList.remove("show");
+      });
 
-      for (let i = 1; i <= daysInMonth; i++) {
-        const dayEl = document.createElement("div");
-        dayEl.className = "day";
+      popUpButton.addEventListener("click", () => {
+        popUp.classList.remove("show");
+      });
 
-        const today = new Date();
-        if (
-          i === today.getDate() &&
-          month === today.getMonth() &&
-          year === today.getFullYear()
-        ) {
-          dayEl.classList.add("active");
+      // luk for pop up, ved at klikke udenfor boksen
+      popUp.addEventListener("click", (e) => {
+        if (e.target === popUp) {
+          popUp.classList.remove("show");
         }
-
-        dayEl.textContent = i;
-        grid.appendChild(dayEl);
-      }
-
-      monthEl.textContent = monthNames[month];
-      yearEl.textContent = year;
-    }
-
-    prevBtn.addEventListener("click", () => {
-      month--;
-      if (month < 0) {
-        month = 11;
-        year--;
-      }
-      renderCalendar();
-    });
-
-    nextBtn.addEventListener("click", () => {
-      month++;
-      if (month > 11) {
-        month = 0;
-        year++;
-      }
-      renderCalendar();
-    });
-
-    renderCalendar();
-  })();
-</script>
+      });
+    </script>
+  </body>
+</html>

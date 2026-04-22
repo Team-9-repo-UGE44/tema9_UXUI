@@ -1,9 +1,11 @@
 ---
-
 import Footer from "../components/Footer.astro";
 import Navigation from "../components/Navigation.astro";
+import PressHeader from "../components/PressHeader.astro";
+import PressContent from "../components/PressContent.astro";
+import PressDesignGuide from "../components/PressDesignGuide.astro";
 import "../Styles/general.css";
-
+import "../Styles/presse.css";
 ---
 
 <html lang="en">
@@ -11,12 +13,31 @@ import "../Styles/general.css";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="/js/nav.js" defer></script>
-    <title>Document</title>
+    <title>Presse - Logo-presse</title>
 </head>
-<header></header>
 <body>
     <Navigation></Navigation>
-    <Footer></Footer>
 
-  </body>
+    <PressHeader>
+        <h1>Presse</h1>
+    </PressHeader>
+
+    <PressContent>
+        <div class="press-container">
+            <h2 class="press-heading">Velkommen til vores presseside.</h2>
+            <div class="press-text">
+                <p>
+                    Her finder du officielle logoer, billeder og andet pressemateriale, som frit kan anvendes i redaktionel sammenhæng. Vi stiller materialet til rådighed for at sikre en korrekt og ensartet præsentation af vores brand.
+                </p>
+                <p>
+                    Vi beder venligst om, at alle visuelle elementer anvendes i overensstemmelse med vores retningslinjer og ikke ændres uden forudgående tilladelse. Har du brug for yderligere materiale eller information, er du altid velkommen til at kontakte os.
+                </p>
+            </div>
+        </div>
+    </PressContent>
+
+    <PressDesignGuide />
+
+    <Footer></Footer>
+</body>
 </html>
