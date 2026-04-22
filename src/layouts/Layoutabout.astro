@@ -1,0 +1,43 @@
+---
+import Footer from "../components/Footer.astro";
+import Navigation from "../components/Navigation.astro";
+import InfoSection from "../components/InfoSection.astro";
+import Heading from "../components/Heading.astro";
+import SmallCard from "../components/SmallCard.astro";
+import "../Styles/general.css";
+import "../Styles/kontakt.css";
+---
+
+<html lang="da">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon_timeglas.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <!-- 🔥 HER -->
+  <script src="/js/nav.js" defer></script>
+    <title>UGE 44</title>
+  </head>
+
+  <body>
+
+    <!-- 🔥 NAVIGATION ØVERST -->
+    <Navigation />
+
+    <!-- 🔥 HERO 
+    <Hero />-->
+
+    <!-- 🔥 PAGE CONTENT -->
+    <main>
+        
+      <slot />
+<InfoSection />
+<Heading text="Mere om uge 44" />
+
+<SmallCard />
+    </main>
+
+    <!-- 🔥 FOOTER -->
+    <Footer />
+
+  </body>
+</html>
