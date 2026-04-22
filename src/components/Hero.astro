@@ -1,28 +1,22 @@
 ---
 import MenuButton from "./MenuButton.astro";
-import heroImg from "../assets/HERO.webp";
 ---
 
 <section
   class="hero"
-  style={`background-image: url("${heroImg.src}")`}
+  style='background-image: url("/HERO.webp");'
 >
   <h1 class="hero-tagline">"tag plasteret af"</h1>
-  
-     <nav>
-    <span class="logo">
-      <br />
-    </span>
 
+  <nav class="hero-nav">
+    <span class="logo"></span>
     <MenuButton buttonText="MENU" />
   </nav>
 
- 
-
   <!-- 🔥 CTA knapper -->
   <div class="hero-buttons">
-    <a href="#" class="btn primary">Se kalender</a>
-    <a href="#" class="btn secondary">Om os</a>
+    <a href="/kalender" class="btn primary">Se kalender</a>
+    <a href="/om" class="btn secondary">Om os</a>
   </div>
 </section>
 
