@@ -1,0 +1,242 @@
+<section class="design-guide">
+  <div class="design-guide-container">
+    <!-- Logo -->
+    <div class="guide-section">
+      <h3>Logo</h3>
+      <div class="logo-showcase">
+        <img src="/hvidt-logo-uge44.svg" alt="Logo" class="logo-display" />
+      </div>
+    </div>
+
+    <!-- Ikon -->
+    <div class="guide-section">
+      <h3>Ikon</h3>
+      <div class="favicon-showcase">
+        <img src="/favicon_timeglas.svg" alt="Ikon" class="favicon-display" />
+      </div>
+    </div>
+
+    <!-- Fonts -->
+    <div class="guide-section">
+      <h3>Typografi</h3>
+      <div class="fonts-grid">
+        <div class="font-sample">
+          <div class="font-header">
+            <h4 style="font-family: 'Raleway', sans-serif; font-weight: 700;">Raleway</h4>
+            <span class="font-weight">Vægt: 700</span>
+          </div>
+          <p class="font-use">Overskrifter</p>
+          <code>font-family: 'Raleway', sans-serif;</code>
+        </div>
+        <div class="font-sample">
+          <div class="font-header">
+            <h4 style="font-family: 'Montserrat', sans-serif; font-weight: 400;">Montserrat</h4>
+            <span class="font-weight">Vægt: 400</span>
+          </div>
+          <p class="font-use">Brødtekst</p>
+          <code>font-family: 'Montserrat', sans-serif;</code>
+        </div>
+      </div>
+    </div>
+
+    <!-- Farver  -->
+    <div class="guide-section">
+      <h3>Farvepalette</h3>
+      <div class="colors-grid">
+        <div class="color-box">
+          <div class="color-swatch" style="background-color: #c07a6b;"></div>
+          <p class="color-name">Terrakotta</p>
+          <code>#c07a6b</code>
+        </div>
+        <div class="color-box">
+          <div class="color-swatch" style="background-color: #f07f5a;"></div>
+          <p class="color-name">Orange</p>
+          <code>#f07f5a</code>
+        </div>
+        <div class="color-box">
+          <div class="color-swatch" style="background-color: #caa08f;"></div>
+          <p class="color-name">Beige</p>
+          <code>#caa08f</code>
+        </div>
+        <div class="color-box">
+          <div class="color-swatch" style="background-color: #f3f3f3;"></div>
+          <p class="color-name">Lysegrå</p>
+          <code>#f3f3f3</code>
+        </div>
+        <div class="color-box">
+          <div class="color-swatch" style="background-color: #ffffff; border: 2px solid #ddd;"></div>
+          <p class="color-name">Hvid</p>
+          <code>#ffffff</code>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.design-guide {
+  grid-column: 1 / -1;
+  background-color: #fafafa;
+  padding: 60px 20px;
+}
+
+.design-guide-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.guide-section {
+  margin-bottom: 50px;
+}
+
+.guide-section h3 {
+  font-size: 24px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #1a1a1a;
+}
+
+/* Logo */
+.logo-showcase,
+.favicon-showcase {
+  background-color: white;
+  padding: 50px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e5e5e5;
+}
+
+.logo-display {
+  width: 180px;
+  height: auto;
+}
+
+.favicon-display {
+  width: 100px;
+  height: 100px;
+}
+
+/* Fonts */
+.fonts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.font-sample {
+  background-color: white;
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid #e5e5e5;
+}
+
+.font-header {
+  margin-bottom: 15px;
+}
+
+.font-sample h4 {
+  font-size: 20px;
+  margin: 0 0 5px 0;
+}
+
+.font-weight {
+  display: inline-block;
+  font-size: 12px;
+  color: #888;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.font-use {
+  font-size: 13px;
+  color: #666;
+  margin: 10px 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.font-sample code {
+  display: block;
+  background-color: #f8f8f8;
+  padding: 10px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  margin-top: 10px;
+  font-family: 'Courier New', monospace;
+  color: #555;
+}
+
+/* Colors Grid */
+.colors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 20px;
+}
+
+.color-box {
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  text-align: center;
+  padding-bottom: 18px;
+  border: 1px solid #e5e5e5;
+}
+
+.color-swatch {
+  width: 100%;
+  height: 90px;
+}
+
+.color-name {
+  margin: 12px 10px 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a1a1a;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.color-box code {
+  display: block;
+  background-color: #f8f8f8;
+  padding: 8px 10px;
+  font-size: 11px;
+  margin: 0 10px;
+  border-radius: 6px;
+  font-family: 'Courier New', monospace;
+  color: #555;
+}
+
+@media (max-width: 600px) {
+  .design-guide {
+    padding: 40px 20px;
+  }
+
+  .guide-section {
+    margin-bottom: 35px;
+  }
+
+  .guide-section h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .colors-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .fonts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .logo-display {
+    width: 130px;
+  }
+
+  .logo-showcase,
+  .favicon-showcase {
+    padding: 30px;
+  }
+}
+</style>
