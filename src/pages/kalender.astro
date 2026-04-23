@@ -3,7 +3,6 @@ import Layout from "../layouts/Layout.astro";
 import Navigation from "../components/Navigation.astro";
 import Footer from "../components/Footer.astro";
 import Heading from "../components/Heading.astro";
-import "../Styles/general.css";
 import "../Styles/kalender.css";
 
 /*------------------------------*/
@@ -64,23 +63,11 @@ const events = [
 const featuredEvent = events[0]; // Vælg det første event som det fremhævede event ved at ændre tallet her.
 ---
 
-<html lang="da">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="/js/nav.js" defer></script>
-    <title>Kalender - Uge 44</title>
-  </head>
-  <body>
-    <Navigation />
+<Layout>
+    <Heading text="Kommende begivenheder" />
 
- <Heading text="Kommende begivenheder" />
-
-    <!-- Kommende begivenheder section -->
-          
+    <!-- Kommende begivenheder section -->  
     <section class="events-section">
-
-
       <div class="events-grid">
         {
           events.map((event) => (
@@ -128,9 +115,7 @@ const featuredEvent = events[0]; // Vælg det første event som det fremhævede 
         </div>
       </div>
     </section>
-
-    <Footer />
-
+    
     <div id="sharePopUp" class="popUp">
       <div class="popUp-content">
         <button class="popUp-close">&times;</button>
@@ -139,13 +124,11 @@ const featuredEvent = events[0]; // Vælg det første event som det fremhævede 
         <button class="popUp-button">Luk</button>
       </div>
     </div>
-
-
-
-
-     <!--------------------------------------------------------------------->
-     <!-- JavaScript til at håndtere "Læs mere" knapperne og pop-up deling -->
-     <!--------------------------------------------------------------------->
+    </Layout>
+    
+    <!--------------------------------------------------------------------->
+    <!-- JavaScript til at håndtere "Læs mere" knapperne og pop-up deling -->
+    <!--------------------------------------------------------------------->
     <script define:vars={{ events }}>
       document.querySelectorAll(".details-btn").forEach((button) => {
         button.addEventListener("click", (e) => {
@@ -165,16 +148,16 @@ const featuredEvent = events[0]; // Vælg det første event som det fremhævede 
             document.querySelector(".featured-content p").textContent =
               selectedEvent.extendedDescription;
 
-            // Scroll til feat event 
-            setTimeout(() => {
+              // Scroll til feat event 
+              setTimeout(() => {
               document
                 .getElementById("featured-event-section")
                 .scrollIntoView({ behavior: "smooth" });
-            }, 100);
+              }, 100);
           }
         });
       });
-
+      
       
       /*-----------*/      
       /* del event */
@@ -193,7 +176,7 @@ const featuredEvent = events[0]; // Vælg det første event som det fremhævede 
       closeBtn.addEventListener("click", () => {
         popUp.classList.remove("show");
       });
-
+      
       popUpButton.addEventListener("click", () => {
         popUp.classList.remove("show");
       });
@@ -205,5 +188,5 @@ const featuredEvent = events[0]; // Vælg det første event som det fremhævede 
         }
       });
     </script>
-  </body>
-</html>
+  
+
