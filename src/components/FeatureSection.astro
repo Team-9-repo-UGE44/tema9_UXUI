@@ -1,20 +1,28 @@
+---
+import { Image } from "astro:assets";
+
+import CampaignImg from "../assets/En-kampagne-i-uge-44-index.webp";
+import EventsImg from "../assets/Hvad-sker-der-i-uge-44-index.png";
+
+---
+
 <section class="info-section">
   
   <div class="info-card">
-    <img src="src/assets/En-kampagne-i-uge-44-index.webp" alt="UGE 44 kampagne" />
-
+    <Image src={CampaignImg} alt="UGE 44 kampagne" />
+    
     <p class="label">UGE 44</p>
     <h3>Landsdækkende kampagne</h3>
-
+    
     <p class="text">
       I mange dele af verden er efteråret en tid, hvor de døde og døden bliver markeret.
     </p>
-
+    
     <a href="#" class="btn">Læs mere</a>
   </div>
-
+  
   <div class="info-card">
-    <img src="src/assets/Hvad-sker-der-i-uge-44-index.webp" alt="Hvad sker der i uge 44" />
+    <Image src={EventsImg} alt="Hvad sker der i uge 44" />
 
     <p class="label">UGE 44</p>
     <h3>Hvad sker der i uge 44?</h3>
