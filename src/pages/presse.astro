@@ -1,23 +1,15 @@
 ---
-import Footer from "../components/Footer.astro";
-import Navigation from "../components/Navigation.astro";
 import PressHeader from "../components/PressHeader.astro";
 import PressContent from "../components/PressContent.astro";
 import PressDesignGuide from "../components/PressDesignGuide.astro";
-import "../Styles/general.css";
+
 import "../Styles/presse.css";
+import Layout from "../layouts/Layout.astro";
 ---
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="/js/nav.js" defer></script>
-    <title>Presse - Logo-presse</title>
-</head>
-<body>
-    <Navigation></Navigation>
+<Layout>
 
+    
     <PressHeader>
         <h1>Presse</h1>
     </PressHeader>
@@ -37,7 +29,4 @@ import "../Styles/presse.css";
     </PressContent>
 
     <PressDesignGuide />
-
-    <Footer></Footer>
-</body>
-</html>
+</Layout>

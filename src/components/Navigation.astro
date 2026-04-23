@@ -1,8 +1,16 @@
+---
+
+import {Image} from "astro:assets";
+import Logo from "../assets/UGE_44_sort.png";
+
+---
+
 <header class="nav">
 
   <!-- Logo -->
   <div class="nav-left">
-    <img src="imgs/UGE_44_sort.png" alt="UGE 44" class="logo" />
+    <Image src={Logo} alt="UGE 44" class="logo" />
+    <!-- <img src="/imgs/UGE_44_sort.png" alt="UGE 44" class="logo" /> -->
     <span class="nav-title">UGE 44</span>
   </div>
 
@@ -32,3 +40,9 @@
   </div>
 
 </header>
+
+<style>
+  .logo {
+    height: 120px;
+  }
+</style>
