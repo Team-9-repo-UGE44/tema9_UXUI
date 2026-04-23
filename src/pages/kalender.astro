@@ -12,6 +12,7 @@ import img3 from "../assets/de_doedes_dag.webp";
 import img4 from "../assets/4.webp";
 import img5 from "../assets/5.webp";
 import img6 from "../assets/6.webp";
+import Calendar from "../components/Calendar.astro";
 
 const events = [
   {
@@ -63,6 +64,7 @@ const featuredEvent = events[0]; // Vælg det første event som det fremhævede 
 
 <Layout>
     <Heading text="Kommende begivenheder" />
+    <Calendar />
 
     <!-- Kommende begivenheder section -->  
     <section class="events-section">
@@ -187,4 +189,77 @@ const featuredEvent = events[0]; // Vælg det første event som det fremhævede 
       });
     </script>
   
+    <!-- CLIENT SCRIPT -->
+<script is:inline>
+  (() => {
+    let month = new Date().getMonth();
+    let year = new Date().getFullYear();
+
+    const monthNames = [
+      "Jan","Feb","Mar","Apr","Maj","Jun",
+      "Jul","Aug","Sep","Okt","Nov","Dec"
+    ];
+
+    const grid = document.getElementById("grid");
+    const monthEl = document.getElementById("month");
+    const yearEl = document.getElementById("year");
+    const prevBtn = document.getElementById("prev");
+    const nextBtn = document.getElementById("next");
+
+    if (!grid || !monthEl || !yearEl || !prevBtn || !nextBtn) return;
+
+    function renderCalendar() {
+      const firstDay = new Date(year, month, 1).getDay();
+      const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+      grid.innerHTML = "";
+
+      for (let i = 0; i < firstDay; i++) {
+        const empty = document.createElement("div");
+        empty.className = "day";
+        grid.appendChild(empty);
+      }
+
+      for (let i = 1; i <= daysInMonth; i++) {
+        const dayEl = document.createElement("div");
+        dayEl.className = "day";
+
+        const today = new Date();
+        if (
+          i === today.getDate() &&
+          month === today.getMonth() &&
+          year === today.getFullYear()
+        ) {
+          dayEl.classList.add("active");
+        }
+
+        dayEl.textContent = i;
+        grid.appendChild(dayEl);
+      }
+
+      monthEl.textContent = monthNames[month];
+      yearEl.textContent = year;
+    }
+
+    prevBtn.addEventListener("click", () => {
+      month--;
+      if (month < 0) {
+        month = 11;
+        year--;
+      }
+      renderCalendar();
+    });
+
+    nextBtn.addEventListener("click", () => {
+      month++;
+      if (month > 11) {
+        month = 0;
+        year++;
+      }
+      renderCalendar();
+    });
+
+    renderCalendar();
+  })();
+</script>
 

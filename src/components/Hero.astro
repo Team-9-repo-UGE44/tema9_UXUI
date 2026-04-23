@@ -3,15 +3,9 @@ import MenuButton from "./MenuButton.astro";
 ---
 
 <section
-  class="hero"
   style='background-image: url("/HERO.webp");'
 >
   <h1 class="hero-tagline">"tag plasteret af"</h1>
-
-  <nav class="hero-nav">
-    <span class="logo"></span>
-    <MenuButton buttonText="MENU" />
-  </nav>
 
   <!-- 🔥 CTA knapper -->
   <div class="hero-buttons">
@@ -19,4 +13,112 @@ import MenuButton from "./MenuButton.astro";
     <a href="/om" class="btn secondary">Om os</a>
   </div>
 </section>
+
+<style>
+  /* =========================
+   HERO
+========================= */
+.hero-tagline {
+  background: rgba(180, 170, 150, 0.85);
+  rotate: 8deg; /* 🔥 rotation */
+  padding: 12px 30px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 28px;
+  color: white;
+  margin-block: 2rem;
+  border-radius: 4px;
+}
+
+section {
+  position: relative;
+  display: grid;
+  justify-content: center;
+  align-content: end;
+  align-items: end;
+  grid-column: 1 / -1;
+  background-size: cover;
+  background-position: center;
+  padding-block: 2rem;
+}
+
+.hero-tagline {
+    font-size: 18px;
+    bottom: 80px;
+  }
+
+/* Overlay */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #caa08f;
+  padding: 40px;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-overlay h1 {
+  font-size: 80px;
+  line-height: 0.9;
+  font-weight: 800;
+}
+
+/* Hero buttons */
+.hero-buttons {
+  /* position: absolute; */
+  /* bottom: 40px;
+  left: 50%; */
+  /* transform: translateX(-50%); */
+  display: flex;
+  gap: 20px;
+}
+
+/* HERO buttons */
+section .btn {
+  padding: 14px 28px;
+  border-radius: 30px;
+}
+
+section .btn.primary {
+  background: #f07f5a;
+  color: white;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+section .btn.secondary {
+  background: white;
+  color: black;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+section .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.2);
+}
+
+section .btn:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* =========================
+   HERO RESPONSIVE
+========================= */
+
+@media (min-width: 560px) {
+  section {
+    min-height: 740px;
+  }
+
+  .hero-tagline {
+    position: absolute;
+    right: 20%;
+    bottom: 12rem;
+    font-size: 32px;
+  }
+}
+</style>
 

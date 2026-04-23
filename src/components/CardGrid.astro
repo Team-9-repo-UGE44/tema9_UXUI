@@ -1,0 +1,77 @@
+---
+import Card from "./Card.astro";
+
+import img1 from "../assets/Event-guide_2026-uge-44.webp";
+import img2 from "../assets/uge44-2025.webp";
+import img3 from "../assets/de_doedes_dag.webp";
+import img4 from "../assets/naar_doeden_os_skiller.webp";
+
+---
+<section class="grid-1-1">
+  
+  <Card src={img1.src} title="UGE 44 i 2026"  href="#">
+    <p>
+    2025 sluttede endnu flere sig til vores kampagne, og vi gjorde vores følgere opmærksomme på en masse initiativer landet rundt i vores nye kalender for UGE 44.
+  </p>
+  </Card>
+  <Card src={img2.src} title="UGE 44 i 2026"  href="#">
+    <p>
+   I 2025 voksede kampagnen, og endnu flere blev en del af fællesskabet. Gennem kalenderen for UGE 44 synliggør vi aktiviteter i hele landet og gør det lettere at tage del i samtalen om liv og død.
+  </p>
+  </Card>
+  <Card src={img3.src} title="UGE 44 i 2026"  href="#">
+    <p>
+   I 2023 lancerede vi kampagneugen med en plakatkonkurrence om “De dødes dag i Danmark”. Det resulterede i mange kreative bidrag, hvor de bedste blev udvalgt og sendt til biblioteker sammen med en bogliste om døden. Samtidig satte institutioner og borgere over hele landet fokus på emnet i uge 44.
+  </p>
+  </Card>
+  <Card src={img4.src} title="UGE 44 i 2026"  href="#">
+    <p>
+   2024 bar præg af, at flere sluttede sig til vores kampagne. Vi gjorde derfor danskere opmærksomme på en masse initiativer landet rundt – både nogle, der i forvejen var både nogle, der i forvejen var engagerede, og nye initiativer, der var med til at sætte fokus på døden i uge 44.
+  </p>
+  </Card>
+</section>
+
+<style>
+    body {
+    background-color: #F5F3EF;
+}
+
+section {
+  max-width: 1200px;
+    margin: 0 auto;
+    background: #f4f4f4;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+
+
+
+.grid-1-1 h3 {
+font-family: 'Raleway', sans-serif;
+ font-size: 16px;
+ margin-left: 10%;
+  padding: 1em;
+}
+
+.grid-1-1 p {
+  font-size: 16px;
+ margin-left: 10%;
+  line-height: 1.5;
+  padding: 1em;
+}
+
+.grid-1-1 a {
+  font-size: 12px;
+  margin-bottom: 20px;
+  padding: 1em;
+   background: transparent;
+  border: 2px solid #000;
+  color: #000;
+  border-radius: 999px;
+  margin-left: 15%;
+}
+</style>

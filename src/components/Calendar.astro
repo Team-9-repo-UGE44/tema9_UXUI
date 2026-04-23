@@ -1,0 +1,135 @@
+---
+
+const today = new Date();
+
+const initialYear = today.getFullYear();
+const initialMonth = today.getMonth();
+
+const monthNames = [
+  "Jan", "Feb", "Mar", "Apr", "Maj", "Jun",
+  "Jul", "Aug", "Sep", "Okt", "Nov", "Dec"
+];
+
+function getDays(year: number, month: number) {
+  const firstDay = new Date(year, month, 1).getDay();
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+  const days = [];
+
+  for (let i = 0; i < firstDay; i++) {
+    days.push(null);
+  }
+
+  for (let i = 1; i <= daysInMonth; i++) {
+    days.push(i);
+  }
+
+  return days;
+}
+
+const days = getDays(initialYear, initialMonth);
+---
+
+<section class="calendar">
+
+  <!-- HEADER -->
+  <div class="calendar-header">
+    <button id="prev" aria-label="Forrige måned">&lt;</button>
+
+    <div class="selectors">
+      <span id="month">{monthNames[initialMonth]}</span>
+      <span id="year">{initialYear}</span>
+    </div>
+
+    <button id="next" aria-label="Næste måned">&gt;</button>
+  </div>
+
+  <!-- WEEKDAYS -->
+  <div class="weekdays">
+    <span>Su</span><span>Mo</span><span>Tu</span>
+    <span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
+  </div>
+
+  <!-- GRID -->
+  <div class="calendar-grid" id="grid">
+    {days.map((day) => (
+      <div class={`day ${day === today.getDate() ? "active" : ""}`}>
+        {day ?? ""}
+      </div>
+    ))}
+  </div>
+
+</section>
+
+<style>
+    .calendar {
+  grid-column: 1 / -1;
+  max-width: 600px;
+  margin: 60px auto;
+  padding: 30px;
+  background: #f3f3f3;
+  border-radius: 20px;
+  text-align: center;
+}
+
+/* weekdays */
+.weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 10px;
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+/* grid */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 15px;
+}
+
+/* dage */
+.day {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+}
+
+/* aktiv */
+.day.active {
+  background: #333;
+  color: white;
+}
+
+.day {
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.day:hover {
+  background: #ddd;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.calendar-header button {
+  background: none;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.selectors {
+  display: flex;
+  gap: 10px;
+  font-weight: 600;
+}
+</style>
